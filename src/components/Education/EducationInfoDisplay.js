@@ -1,9 +1,12 @@
-const EducationInfoDisplay = ({ masterInfo }) => {
+import School from "./School";
+import { GoDiffAdded } from "react-icons/go";
+
+const EducationInfoDisplay = ({ masterInfo, toggleModal }) => {
   return (
     <div>
-      <p>School: {masterInfo.schoolName}</p>
-      <p>Years Attended: {masterInfo.years}</p>
-      <p>Degree Earned: {masterInfo.degree}</p>
+      {masterInfo.map((school, idx) => (
+        <School key={idx} schoolInfo={school} />
+      ))}
     </div>
   );
 };

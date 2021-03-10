@@ -6,11 +6,19 @@ import EducationInfo from "./components/Education/EducationInfo";
 function App() {
   const [masterInfo, updateInfo] = useState({
     general: {},
-    education: {},
+    education: [],
+    work: {},
   });
 
-  const handleUpdate = (newInfo, key) => {
+  const handleUpdateGeneralInfo = (newInfo, key) => {
     updateInfo({ ...masterInfo, [key]: newInfo });
+  };
+
+  const handleUpdateEducation = (newSchool) => {
+    updateInfo({
+      ...masterInfo,
+      education: masterInfo.education.concat(newSchool),
+    });
   };
 
   const checkInfo = () => {
@@ -20,8 +28,8 @@ function App() {
   return (
     <div className="App">
       <div>
-        <GeneralInfo update={handleUpdate} masterInfo={masterInfo} />
-        <EducationInfo update={handleUpdate} masterInfo={masterInfo} />
+        <GeneralInfo update={handleUpdateGeneralInfo} masterInfo={masterInfo} />
+        <EducationInfo update={handleUpdateEducation} masterInfo={masterInfo} />
       </div>
 
       <button onClick={checkInfo}>Check Info</button>

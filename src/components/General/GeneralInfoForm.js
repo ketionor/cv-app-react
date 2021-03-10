@@ -6,9 +6,9 @@ import { useState } from "react";
 
 const GeneralInfoForm = ({ update }) => {
   const [info, updateInfo] = useState({
-    name: "super fart",
-    email: "poop@gmail.com",
-    phone: "098098098",
+    name: "John Doe",
+    email: "johndoe@gmail.com",
+    phone: "555-555-5555",
   });
   const [show, toggle] = useState(false);
 
