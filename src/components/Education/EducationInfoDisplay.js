@@ -1,9 +1,9 @@
-const EducationInfoDisplay = (masterInfo) => {
+const EducationInfoDisplay = ({ masterInfo }) => {
   return (
     <div>
-      <p>Name: {masterInfo.name}</p>
-      <p>Email: {masterInfo.email}</p>
-      <p>Phone: {masterInfo.phone}</p>
+      <p>School: {masterInfo.schoolName}</p>
+      <p>Years Attended: {masterInfo.years}</p>
+      <p>Degree Earned: {masterInfo.degree}</p>
     </div>
   );
 };

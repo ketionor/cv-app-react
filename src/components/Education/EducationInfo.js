@@ -1,5 +1,6 @@
 import EducationInfoForm from "./EducationInfoForm";
 import Container from "react-bootstrap/Container";
+import EducationInfoDisplay from "./EducationInfoDisplay";
 
 const EducationInfo = ({ update, masterInfo }) => {
   return (
@@ -8,7 +9,7 @@ const EducationInfo = ({ update, masterInfo }) => {
       {Object.keys(masterInfo.education).length === 0 ? (
         <EducationInfoForm update={update} />
       ) : (
-        "null"
+        <EducationInfoDisplay masterInfo={masterInfo.education} />
       )}
     </Container>
   );

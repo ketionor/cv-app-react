@@ -6,9 +6,9 @@ import { useState } from "react";
 
 const EducationInfoForm = ({ update }) => {
   const [info, updateInfo] = useState({
-    name: "super fart",
-    email: "poop@gmail.com",
-    phone: "098098098",
+    schoolName: "Hogwarts",
+    years: "1997-2001",
+    degree: "Potions",
   });
   const [show, toggle] = useState(false);
 
@@ -50,7 +50,7 @@ const EducationInfoForm = ({ update }) => {
               <Form.Label>Years Attended</Form.Label>
               <Form.Control
                 placeholder="1997 - 2001"
-                onChange={(e) => handleChange(e, "email")}
+                onChange={(e) => handleChange(e, "years")}
               />
             </Form.Group>
 
