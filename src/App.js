@@ -62,7 +62,7 @@ function App() {
         />
         <DropdownButton
           drop="up"
-          variant="secondary"
+          variant="primary"
           title="Add"
           className="add-button"
         >

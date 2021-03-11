@@ -1,18 +1,17 @@
-import Card from "react-bootstrap/Card";
+import { RiDeleteBin5Line } from "react-icons/ri";
 
 const School = ({ schoolInfo }) => {
   return (
-    <div>
-      <Card bg={"primary"} className="mb-2">
-        <Card.Header>Header</Card.Header>
-        <Card.Body>
-          <Card.Title>School: {schoolInfo.schoolName}</Card.Title>
-          <Card.Text>
-            Years Attended: {schoolInfo.years} <br />
-            Degree Earned: {schoolInfo.degree}
-          </Card.Text>
-        </Card.Body>
-      </Card>
+    <div className="school">
+      <span>
+        <h3>{schoolInfo.schoolName}</h3>
+        <p>
+          {schoolInfo.degree}, {schoolInfo.years}
+        </p>
+      </span>
+      <span>
+        <RiDeleteBin5Line style={{ color: "#dc3545", cursor: "pointer" }} />
+      </span>
     </div>
   );
 };
