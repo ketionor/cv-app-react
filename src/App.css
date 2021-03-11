@@ -1,1 +1,60 @@
-/* No CSS *//*# sourceMappingURL=App.css.map */
+body {
+  background-color: #222831;
+  color: #eeeeee !important;
+}
+
+.home-container {
+  padding: 20px;
+}
+
+.navbar-dark {
+  background-color: #2d4059;
+  color: #eeeeee;
+}
+
+.info-container, .education-info-container, .general-info-container {
+  margin-top: 20px;
+  border: 3px solid #2d4059;
+  border-radius: 10px;
+  padding: 10px;
+  min-height: 200px;
+}
+
+.education-info-container {
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.school {
+  margin: 10px;
+  background-color: #2d4059;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.26);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.school:hover {
+  background-color: #2d4059;
+}
+
+.school-display {
+  margin: 5px;
+  width: 100%;
+}
+
+.add-button {
+  color: #ff5722 !important;
+  transition: color 0.25s;
+  position: fixed;
+  bottom: 1em;
+  right: 1em;
+}
+
+.add-button:hover {
+  color: #ff5722;
+}
+/*# sourceMappingURL=App.css.map */

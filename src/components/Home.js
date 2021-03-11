@@ -5,8 +5,7 @@ import Dropdown from "react-bootstrap/Dropdown";
 
 const Home = ({ props }) => {
   return (
-    <div>
-      {console.log(props)}
+    <div className="home-container">
       <GeneralInfo props={props} />
       <EducationInfo props={props} />
       <DropdownButton

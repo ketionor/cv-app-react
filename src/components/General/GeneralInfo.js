@@ -5,7 +5,7 @@ import GeneralInfoDisplay from "./GeneralInfoDisplay";
 
 const GeneralInfo = ({ props }) => {
   return (
-    <Container className="general-info-container">
+    <Container fluid className="general-info-container">
       <h2>General Information</h2>
       <GeneralInfoDisplay masterInfo={props.masterInfo.general} />
       <GeneralInfoForm props={props} />
