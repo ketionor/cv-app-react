@@ -1,10 +1,9 @@
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-import { GoDiffAdded } from "react-icons/go";
 import { useState } from "react";
 
-const EducationInfoForm = ({ update, showModal, toggleModal }) => {
+const EducationInfoForm = ({ update, showModal, toggleVisibility }) => {
   const [info, updateInfo] = useState([
     {
       schoolName: "Hogwarts",
@@ -13,9 +12,12 @@ const EducationInfoForm = ({ update, showModal, toggleModal }) => {
     },
   ]);
 
+  const toggleEducationModal = () => {
+    toggleVisibility("education");
+  };
+
   const handleChange = (e, key) => {
     updateInfo({ ...info, [key]: e.target.value });
-    console.log(info);
   };
 
   const handleSubmit = () => {
@@ -27,12 +29,12 @@ const EducationInfoForm = ({ update, showModal, toggleModal }) => {
         degree: "Potions",
       },
     ]);
-    toggleModal();
+    toggleEducationModal();
   };
 
   return (
     <>
-      <Modal show={showModal} onHide={toggleModal}>
+      <Modal show={showModal} onHide={toggleEducationModal}>
         <Modal.Header closeButton>
           <Modal.Title>Modal heading</Modal.Title>
         </Modal.Header>
@@ -64,7 +66,7 @@ const EducationInfoForm = ({ update, showModal, toggleModal }) => {
           </Form>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={toggleModal}>
+          <Button variant="secondary" onClick={toggleEducationModal}>
             Close
           </Button>
           <Button variant="primary" onClick={handleSubmit}>

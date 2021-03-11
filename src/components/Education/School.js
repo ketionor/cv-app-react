@@ -1,9 +1,18 @@
+import Card from "react-bootstrap/Card";
+
 const School = ({ schoolInfo }) => {
   return (
     <div>
-      <p>School: {schoolInfo.schoolName}</p>
-      <p>Years Attended: {schoolInfo.years}</p>
-      <p>Degree Earned: {schoolInfo.degree}</p>
+      <Card bg={"primary"} className="mb-2">
+        <Card.Header>Header</Card.Header>
+        <Card.Body>
+          <Card.Title>School: {schoolInfo.schoolName}</Card.Title>
+          <Card.Text>
+            Years Attended: {schoolInfo.years} <br />
+            Degree Earned: {schoolInfo.degree}
+          </Card.Text>
+        </Card.Body>
+      </Card>
     </div>
   );
 };

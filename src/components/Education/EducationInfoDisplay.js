@@ -1,9 +1,8 @@
 import School from "./School";
-import { GoDiffAdded } from "react-icons/go";
 
-const EducationInfoDisplay = ({ masterInfo, toggleModal }) => {
+const EducationInfoDisplay = ({ masterInfo }) => {
   return (
-    <div>
+    <div className="flex card">
       {masterInfo.map((school, idx) => (
         <School key={idx} schoolInfo={school} />
       ))}

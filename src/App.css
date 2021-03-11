@@ -1,3 +1,8 @@
+body {
+  background-color: #222831;
+  color: #eeeeee;
+}
+
 .App {
   text-align: center;
 }
@@ -9,12 +14,33 @@
   justify-content: center;
   align-items: center;
   min-height: 200;
-  border: 3px solid black;
+  border: 3px solid #ff5722;
   border-radius: 10px;
   padding: 10px;
+  transition: background-color 0.5s;
 }
 
 .general-info-container:hover {
-  background-color: rgba(255, 0, 0, 0.205);
+  background-color: #2d4059;
   cursor: pointer;
+}
+
+.flex {
+  display: flex;
+  flex-direction: row;
+}
+
+.card {
+  margin: 5px;
+}
+
+.add-button {
+  transition: color 0.25s;
+  position: fixed;
+  bottom: 1em;
+  right: 1em;
+}
+
+.add-button:hover {
+  color: #ff5722;
 }

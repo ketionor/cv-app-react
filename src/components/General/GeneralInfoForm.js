@@ -4,16 +4,15 @@ import Form from "react-bootstrap/Form";
 import { GoDiffAdded } from "react-icons/go";
 import { useState } from "react";
 
-const GeneralInfoForm = ({ update }) => {
+const GeneralInfoForm = ({ update, showModal, toggleVisibility }) => {
   const [info, updateInfo] = useState({
     name: "John Doe",
     email: "johndoe@gmail.com",
     phone: "555-555-5555",
   });
-  const [show, toggle] = useState(false);
 
-  const toggleVisibility = () => {
-    toggle(!show);
+  const toggleGenModal = () => {
+    toggleVisibility("general");
   };
 
   const handleChange = (e, key) => {
@@ -23,16 +22,17 @@ const GeneralInfoForm = ({ update }) => {
 
   const handleSubmit = () => {
     update(info, "general");
-    updateInfo({});
+    updateInfo({
+      name: "John Doe",
+      email: "johndoe@gmail.com",
+      phone: "555-555-5555",
+    });
+    toggleGenModal();
   };
 
   return (
     <>
-      <GoDiffAdded
-        onClick={toggleVisibility}
-        style={{ width: 50, height: 50, color: "blue" }}
-      />
-      <Modal show={show} onHide={toggleVisibility}>
+      <Modal show={showModal} onHide={toggleGenModal}>
         <Modal.Header closeButton>
           <Modal.Title>Modal heading</Modal.Title>
         </Modal.Header>
@@ -64,7 +64,7 @@ const GeneralInfoForm = ({ update }) => {
           </Form>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={toggleVisibility}>
+          <Button variant="secondary" onClick={toggleGenModal}>
             Close
           </Button>
           <Button variant="primary" onClick={handleSubmit}>
