@@ -13,6 +13,11 @@ body
     align-items: center
     height: 100%
 
+.main-container
+    display: flex
+    flex-direction: column
+    align-items: center
+
 h2
     margin-top: 10px
 
@@ -21,6 +26,7 @@ h2
 
 .home-container
     padding: 20px
+    max-width: 900px
 
 //custom variants    
 .navbar-dark
@@ -83,3 +89,7 @@ h2
 
     &:hover
         color: #ff5722
+
+.modal-content
+    background-color: $dark-secondary
+    color: $text-primary

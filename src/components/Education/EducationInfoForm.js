@@ -64,7 +64,7 @@ const EducationInfoForm = ({ props }) => {
           <Button variant="secondary" onClick={props.toggleEducationModal}>
             Close
           </Button>
-          <Button variant="primary" onClick={handleSubmit}>
+          <Button variant="highlight" onClick={handleSubmit}>
             Save Changes
           </Button>
         </Modal.Footer>

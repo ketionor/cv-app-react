@@ -4,10 +4,11 @@ import DropdownButton from "react-bootstrap/DropdownButton";
 import Dropdown from "react-bootstrap/Dropdown";
 import WorkInfo from "./Work/WorkInfo";
 import { GoDiffAdded } from "react-icons/go";
+import Container from "react-bootstrap/Container";
 
 const Home = ({ props }) => {
   return (
-    <div className="home-container">
+    <Container fluid className="home-container">
       <h2>General Information</h2>
       <GeneralInfo props={props} />
       <h2>Education</h2>
@@ -26,7 +27,7 @@ const Home = ({ props }) => {
           Education
         </Dropdown.Item>
       </DropdownButton>
-    </div>
+    </Container>
   );
 };
 

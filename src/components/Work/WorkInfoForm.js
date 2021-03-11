@@ -8,7 +8,7 @@ const WorkInfoForm = ({ props }) => {
     company: "IBM",
     position: "Janitor",
     years: "1993-1997",
-    id: Date.now(),
+    id: Date.now() % 52, //modulus here ensures work and education IDs will never be duplicates, 52 is arbitrary. Hacky but effective.
   };
 
   const [info, updateInfo] = useState([defaultState]);
@@ -33,26 +33,26 @@ const WorkInfoForm = ({ props }) => {
         <Modal.Body>
           <Form>
             <Form.Group>
-              <Form.Label>Name</Form.Label>
+              <Form.Label>Company</Form.Label>
               <Form.Control
-                placeholder="John Doe"
-                onChange={(e) => handleChange(e, "name")}
+                placeholder="IBM"
+                onChange={(e) => handleChange(e, "company")}
               />
             </Form.Group>
 
             <Form.Group>
-              <Form.Label>Email Address</Form.Label>
+              <Form.Label>Position</Form.Label>
               <Form.Control
-                placeholder="johndoe@gmail.com"
-                onChange={(e) => handleChange(e, "email")}
+                placeholder="Janitor"
+                onChange={(e) => handleChange(e, "position")}
               />
             </Form.Group>
 
             <Form.Group>
-              <Form.Label>Phone Number</Form.Label>
+              <Form.Label>Years</Form.Label>
               <Form.Control
-                placeholder="xxx-xxx-xxxx"
-                onChange={(e) => handleChange(e, "phone")}
+                placeholder="1993-1997"
+                onChange={(e) => handleChange(e, "years")}
               />
             </Form.Group>
           </Form>
@@ -61,7 +61,7 @@ const WorkInfoForm = ({ props }) => {
           <Button variant="secondary" onClick={props.toggleWorkModal}>
             Close
           </Button>
-          <Button variant="primary" onClick={handleSubmit}>
+          <Button variant="highlight" onClick={handleSubmit}>
             Save Changes
           </Button>
         </Modal.Footer>

@@ -4,11 +4,13 @@ import Form from "react-bootstrap/Form";
 import { useState } from "react";
 
 const GeneralInfoForm = ({ props }) => {
-  const [info, updateInfo] = useState({
+  const defaultState = {
     name: "John Doe",
     email: "johndoe@gmail.com",
     phone: "555-555-5555",
-  });
+  };
+
+  const [info, updateInfo] = useState(defaultState);
 
   const handleChange = (e, key) => {
     updateInfo({ ...info, [key]: e.target.value });
@@ -16,11 +18,7 @@ const GeneralInfoForm = ({ props }) => {
 
   const handleSubmit = () => {
     props.handleUpdateGeneralInfo(info, "general");
-    updateInfo({
-      name: "John Doe",
-      email: "johndoe@gmail.com",
-      phone: "555-555-5555",
-    });
+    updateInfo(defaultState);
     props.toggleGenModal();
   };
 
@@ -28,7 +26,7 @@ const GeneralInfoForm = ({ props }) => {
     <>
       <Modal show={props.showModal.general} onHide={props.toggleGenModal}>
         <Modal.Header closeButton>
-          <Modal.Title>Modal heading</Modal.Title>
+          <Modal.Title>Edit General Information</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <Form>
@@ -61,7 +59,7 @@ const GeneralInfoForm = ({ props }) => {
           <Button variant="secondary" onClick={props.toggleGenModal}>
             Close
           </Button>
-          <Button variant="primary" onClick={handleSubmit}>
+          <Button variant="highlight" onClick={handleSubmit}>
             Save Changes
           </Button>
         </Modal.Footer>

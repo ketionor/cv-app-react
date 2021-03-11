@@ -82,9 +82,11 @@ function App() {
   return (
     <div className="App">
       <Navbar />
-      <Switch>
-        <Route path="" render={() => <Home props={infoProps} />} />
-      </Switch>
+      <div className="main-container">
+        <Switch>
+          <Route path="" render={() => <Home props={infoProps} />} />
+        </Switch>
+      </div>
 
       <button onClick={checkInfo}>Check Info</button>
     </div>

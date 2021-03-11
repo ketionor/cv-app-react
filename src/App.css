@@ -3,6 +3,12 @@ body {
   color: #eeeeee !important;
 }
 
+.main-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 h2 {
   margin-top: 10px;
 }
@@ -16,6 +22,7 @@ h2 {
 
 .home-container {
   padding: 20px;
+  max-width: 900px;
 }
 
 .navbar-dark {
@@ -79,5 +86,10 @@ h2 {
 
 .add-button:hover {
   color: #ff5722;
+}
+
+.modal-content {
+  background-color: #2d4059;
+  color: #eeeeee;
 }
 /*# sourceMappingURL=App.css.map */
