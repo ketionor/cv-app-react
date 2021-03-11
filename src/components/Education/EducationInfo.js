@@ -6,8 +6,6 @@ import { useState } from "react";
 const EducationInfo = ({ props }) => {
   return (
     <Container fluid className="education-info-container">
-      <h2>Education</h2>
-
       <EducationInfoForm props={props} />
       <EducationInfoDisplay
         masterInfo={props.masterInfo.education}

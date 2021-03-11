@@ -3,6 +3,17 @@ body {
   color: #eeeeee !important;
 }
 
+h2 {
+  margin-top: 10px;
+}
+
+.nothing-here {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
 .home-container {
   padding: 20px;
 }
@@ -10,6 +21,12 @@ body {
 .navbar-dark {
   background-color: #2d4059;
   color: #eeeeee;
+}
+
+.btn-highlight {
+  color: #eeeeee;
+  background-color: #ff5722;
+  border-color: #ff5722;
 }
 
 .info-container, .education-info-container, .general-info-container {
@@ -24,6 +41,12 @@ body {
   margin-top: 20px;
   display: flex;
   flex-wrap: wrap;
+}
+
+.general-info-container {
+  display: flex;
+  align-items: center;
+  padding: 30px;
 }
 
 .school {

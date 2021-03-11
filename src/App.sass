@@ -7,16 +7,30 @@ body
     background-color: #222831
     color: #eeeeee !important
 
-@mixin flex
+@mixin flex-center
     display: flex
-    flex-direction: column
+    justify-content: center
+    align-items: center
+    height: 100%
+
+h2
+    margin-top: 10px
+
+.nothing-here
+    @include flex-center
 
 .home-container
     padding: 20px
 
+//custom variants    
 .navbar-dark
     background-color: $dark-secondary
     color: $text-primary
+
+.btn-highlight
+    color: $text-primary
+    background-color: $highlight
+    border-color: $highlight
 
 // info containers
 .info-container
@@ -34,6 +48,9 @@ body
 
 .general-info-container
     @extend .info-container
+    display: flex
+    align-items: center
+    padding: 30px
 
 .school
     margin: 10px
