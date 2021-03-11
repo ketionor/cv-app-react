@@ -49,7 +49,7 @@ h2 {
   padding: 30px;
 }
 
-.school {
+.school, .job {
   margin: 10px;
   background-color: #2d4059;
   padding: 20px;
@@ -60,7 +60,7 @@ h2 {
   align-items: center;
 }
 
-.school:hover {
+.school:hover, .job:hover {
   background-color: #2d4059;
 }
 

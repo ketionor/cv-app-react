@@ -38,6 +38,10 @@ function App() {
     toggleVisibility("general");
   };
 
+  const toggleWorkModal = () => {
+    toggleVisibility("work");
+  };
+
   //update master state
   const handleUpdateGeneralInfo = (newInfo, key) => {
     updateInfo({ ...masterInfo, [key]: newInfo });
@@ -47,6 +51,13 @@ function App() {
     updateInfo({
       ...masterInfo,
       education: masterInfo.education.concat(newSchool),
+    });
+  };
+
+  const handleUpdateWork = (newWork) => {
+    updateInfo({
+      ...masterInfo,
+      work: masterInfo.work.concat(newWork),
     });
   };
 
@@ -61,8 +72,10 @@ function App() {
     toggleVisibility: toggleVisibility,
     handleUpdateGeneralInfo: handleUpdateGeneralInfo,
     handleUpdateEducation: handleUpdateEducation,
+    handleUpdateWork: handleUpdateWork,
     toggleGenModal: toggleGenModal,
     toggleEducationModal: toggleEducationModal,
+    toggleWorkModal: toggleWorkModal,
     deleteItem: deleteItem,
   };
 

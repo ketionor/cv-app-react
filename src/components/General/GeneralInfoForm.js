@@ -10,13 +10,8 @@ const GeneralInfoForm = ({ props }) => {
     phone: "555-555-5555",
   });
 
-  // const toggleGenModal = () => {
-  //   props.toggleVisibility("general");
-  // };
-
   const handleChange = (e, key) => {
     updateInfo({ ...info, [key]: e.target.value });
-    console.log(info);
   };
 
   const handleSubmit = () => {
