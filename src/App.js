@@ -1,9 +1,8 @@
 import "./App.css";
-import GeneralInfo from "./components/General/GeneralInfo";
 import { useState } from "react";
-import EducationInfo from "./components/Education/EducationInfo";
-import DropdownButton from "react-bootstrap/DropdownButton";
-import Dropdown from "react-bootstrap/Dropdown";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+import Home from "./components/Home";
+import Navbar from "./components/Nav/Navbar";
 
 function App() {
   const [masterInfo, updateInfo] = useState({
@@ -17,8 +16,17 @@ function App() {
     work: false,
   });
 
+  //delete item (education and work sections)
+  const deleteItem = (id) => {
+    updateInfo({
+      ...masterInfo,
+      education: masterInfo.education.filter((item) => item.id !== id),
+      work: masterInfo.work.filter((item) => item.id !== id),
+    });
+  };
+
+  //toggle modal visibility
   const toggleVisibility = (key) => {
-    console.log("toggling a modal");
     toggleModal({ ...showModal, [key]: !showModal[key] });
   };
 
@@ -30,6 +38,7 @@ function App() {
     toggleVisibility("general");
   };
 
+  //update master state
   const handleUpdateGeneralInfo = (newInfo, key) => {
     updateInfo({ ...masterInfo, [key]: newInfo });
   };
@@ -41,37 +50,28 @@ function App() {
     });
   };
 
+  //test button
   const checkInfo = () => {
     console.log(masterInfo, showModal);
   };
 
+  const infoProps = {
+    masterInfo: masterInfo,
+    showModal: showModal,
+    toggleVisibility: toggleVisibility,
+    handleUpdateGeneralInfo: handleUpdateGeneralInfo,
+    handleUpdateEducation: handleUpdateEducation,
+    toggleGenModal: toggleGenModal,
+    toggleEducationModal: toggleEducationModal,
+    deleteItem: deleteItem,
+  };
+
   return (
     <div className="App">
-      <div>
-        <GeneralInfo
-          update={handleUpdateGeneralInfo}
-          masterInfo={masterInfo}
-          toggleVisibility={toggleVisibility}
-          showModal={showModal.general}
-        />
-        <EducationInfo
-          update={handleUpdateEducation}
-          masterInfo={masterInfo}
-          toggleVisibility={toggleVisibility}
-          showModal={showModal.education}
-        />
-        <DropdownButton
-          drop="up"
-          variant="primary"
-          title="Add"
-          className="add-button"
-        >
-          <Dropdown.Item onClick={toggleGenModal}>General</Dropdown.Item>
-          <Dropdown.Item onClick={toggleEducationModal}>
-            Education
-          </Dropdown.Item>
-        </DropdownButton>
-      </div>
+      <Navbar />
+      <Switch>
+        <Route path="" render={() => <Home props={infoProps} />} />
+      </Switch>
 
       <button onClick={checkInfo}>Check Info</button>
     </div>

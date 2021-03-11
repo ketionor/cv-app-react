@@ -1,10 +1,10 @@
 import School from "./School";
 
-const EducationInfoDisplay = ({ masterInfo }) => {
+const EducationInfoDisplay = ({ masterInfo, deleteItem }) => {
   return (
     <div className="school-display">
-      {masterInfo.map((school, idx) => (
-        <School key={idx} schoolInfo={school} />
+      {masterInfo.map((school) => (
+        <School key={school.id} schoolInfo={school} deleteItem={deleteItem} />
       ))}
     </div>
   );

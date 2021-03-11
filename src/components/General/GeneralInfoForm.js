@@ -3,16 +3,16 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { useState } from "react";
 
-const GeneralInfoForm = ({ update, showModal, toggleVisibility }) => {
+const GeneralInfoForm = ({ props }) => {
   const [info, updateInfo] = useState({
     name: "John Doe",
     email: "johndoe@gmail.com",
     phone: "555-555-5555",
   });
 
-  const toggleGenModal = () => {
-    toggleVisibility("general");
-  };
+  // const toggleGenModal = () => {
+  //   props.toggleVisibility("general");
+  // };
 
   const handleChange = (e, key) => {
     updateInfo({ ...info, [key]: e.target.value });
@@ -20,18 +20,18 @@ const GeneralInfoForm = ({ update, showModal, toggleVisibility }) => {
   };
 
   const handleSubmit = () => {
-    update(info, "general");
+    props.handleUpdateGeneralInfo(info, "general");
     updateInfo({
       name: "John Doe",
       email: "johndoe@gmail.com",
       phone: "555-555-5555",
     });
-    toggleGenModal();
+    props.toggleGenModal();
   };
 
   return (
     <>
-      <Modal show={showModal} onHide={toggleGenModal}>
+      <Modal show={props.showModal.general} onHide={props.toggleGenModal}>
         <Modal.Header closeButton>
           <Modal.Title>Modal heading</Modal.Title>
         </Modal.Header>
@@ -63,7 +63,7 @@ const GeneralInfoForm = ({ update, showModal, toggleVisibility }) => {
           </Form>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={toggleGenModal}>
+          <Button variant="secondary" onClick={props.toggleGenModal}>
             Close
           </Button>
           <Button variant="primary" onClick={handleSubmit}>

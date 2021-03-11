@@ -1,6 +1,6 @@
 import { RiDeleteBin5Line } from "react-icons/ri";
 
-const School = ({ schoolInfo }) => {
+const School = ({ schoolInfo, deleteItem }) => {
   return (
     <div className="school">
       <span>
@@ -10,7 +10,10 @@ const School = ({ schoolInfo }) => {
         </p>
       </span>
       <span>
-        <RiDeleteBin5Line style={{ color: "#dc3545", cursor: "pointer" }} />
+        <RiDeleteBin5Line
+          style={{ color: "#dc3545", cursor: "pointer" }}
+          onClick={() => deleteItem(schoolInfo.id)}
+        />
       </span>
     </div>
   );

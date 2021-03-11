@@ -3,16 +3,12 @@ import { useState } from "react";
 import Container from "react-bootstrap/Container";
 import GeneralInfoDisplay from "./GeneralInfoDisplay";
 
-const GeneralInfo = ({ update, masterInfo, showModal, toggleVisibility }) => {
+const GeneralInfo = ({ props }) => {
   return (
     <Container className="general-info-container">
       <h2>General Information</h2>
-      <GeneralInfoDisplay masterInfo={masterInfo.general} />
-      <GeneralInfoForm
-        update={update}
-        showModal={showModal}
-        toggleVisibility={toggleVisibility}
-      />
+      <GeneralInfoDisplay masterInfo={props.masterInfo.general} />
+      <GeneralInfoForm props={props} />
     </Container>
   );
 };

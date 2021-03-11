@@ -3,38 +3,33 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { useState } from "react";
 
-const EducationInfoForm = ({ update, showModal, toggleVisibility }) => {
-  const [info, updateInfo] = useState([
-    {
-      schoolName: "Hogwarts",
-      years: "1997-2001",
-      degree: "Potions",
-    },
-  ]);
-
-  const toggleEducationModal = () => {
-    toggleVisibility("education");
+const EducationInfoForm = ({ props }) => {
+  const defaultState = {
+    schoolName: "Hogwarts",
+    years: "1997-2001",
+    degree: "Potions",
+    id: Date.now(),
   };
+
+  const [info, updateInfo] = useState([defaultState]);
 
   const handleChange = (e, key) => {
     updateInfo({ ...info, [key]: e.target.value });
   };
 
   const handleSubmit = () => {
-    update(info);
-    updateInfo([
-      {
-        schoolName: "Hogwarts",
-        years: "1997-2001",
-        degree: "Potions",
-      },
-    ]);
-    toggleEducationModal();
+    updateInfo({ ...info, id: Date.now() });
+    props.handleUpdateEducation(info);
+    updateInfo([defaultState]);
+    props.toggleEducationModal();
   };
 
   return (
     <>
-      <Modal show={showModal} onHide={toggleEducationModal}>
+      <Modal
+        show={props.showModal.education}
+        onHide={props.toggleEducationModal}
+      >
         <Modal.Header closeButton>
           <Modal.Title>Modal heading</Modal.Title>
         </Modal.Header>
@@ -66,7 +61,7 @@ const EducationInfoForm = ({ update, showModal, toggleVisibility }) => {
           </Form>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={toggleEducationModal}>
+          <Button variant="secondary" onClick={props.toggleEducationModal}>
             Close
           </Button>
           <Button variant="primary" onClick={handleSubmit}>
